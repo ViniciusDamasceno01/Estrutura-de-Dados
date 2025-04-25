@@ -1,0 +1,28 @@
+Atividade Avaliativa - Estrutura de Dados - 2025-1
+
+Aluno: Vinicius Damasceno Silva Poletti
+
+-------------------------------------------
+
+package Q1;
+
+public class DisciplinaCursada {
+    public String nomeDisciplina;
+    public String nomeProfessor;
+    public double media;
+
+    public DisciplinaCursada(String nomeDisciplina, String nomeProfessor, double media) {
+        this.nomeDisciplina = nomeDisciplina;
+        this.nomeProfessor = nomeProfessor;
+        this.media = media;
+    }
+
+    public void exibirInformacoes() {
+        System.out.println("Disciplina: " + nomeDisciplina);
+        System.out.println("Professor: " + nomeProfessor);
+        System.out.println("Média: " + media);
+   
+    }
+}
+
+

@@ -1,0 +1,26 @@
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] numeros = new int[10];
+        
+        System.out.println("Digite 10 números inteiros:");
+        for (int i = 0; i < numeros.length; i++) {
+            while (true) {
+                System.out.print("Número " + (i + 1) + ": ");
+                if (scanner.hasNextInt()) {
+                    numeros[i] = scanner.nextInt();
+                    break;
+                } else {
+                    System.out.println("Entrada inválida. Digite um número inteiro.");
+                    scanner.next(); // Descarta a entrada inválida
+                }
+            }
+        }
+        
+        scanner.close();
+        
+        System.out.println("Lista de números:");
+        for (int numero : numeros) {
+            System.out.println(numero);
+        }
+    }
+}

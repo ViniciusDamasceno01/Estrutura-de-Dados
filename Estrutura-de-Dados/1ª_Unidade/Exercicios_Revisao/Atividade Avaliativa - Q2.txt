@@ -1,0 +1,10 @@
+package Q2;
+
+public class SomaRecursiva {
+    
+    // Função recursiva para calcular a soma dos números naturais até N
+    public static int somaNaturais(int n) {
+        if (n == 1) { 
+            return 1;
+        }
+        return n + somaNaturais(n - 1); 

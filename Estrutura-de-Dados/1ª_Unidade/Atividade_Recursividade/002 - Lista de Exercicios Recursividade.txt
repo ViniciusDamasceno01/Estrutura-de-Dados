@@ -1,0 +1,477 @@
+002 - Lista de Exercícios Recursividade
+
+Aluno: Vinicius Damasceno Silva Poletti
+
+-------------------------------------------------------------
+
+package Q1;
+
+public class Executavel {
+
+	public static int CalculaMDC(int m, int n) {
+		if (n == 0) {
+			return m;
+		}		
+               return CalculaMDC(n, m % n);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		int resultado = CalculaMDC(20, 5);
+		System.out.println("MDC: " + resultado); 
+	}
+}
+
+-------------------------------------------------------------
+
+package Q2;
+
+public class Executavel {
+
+	public static int fatorial(int x) {
+		if (x == 0 || x == 1) {
+			return 1;
+		}
+		return x * fatorial(x - 1);
+
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+
+		int x = 10;
+		int resultado = fatorial(x);
+		System.out.printf("Fatorial de " + x + " é: " + resultado);
+	}
+}
+
+-------------------------------------------------------------
+
+package Q3;
+
+public static String ConversaoDeBase(int n) {
+		if (n == 0) {
+			return "0";
+		}
+		if (n == 1) {
+			return "1";
+		}
+		return ConversaoDeBase(n / 2) + (n % 2);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		int n = 5;
+		String NumeroBinario = ConversaoDeBase(n);
+
+		System.out.println("O número " + n + " em binario é igual a: " + NumeroBinario);
+	}
+}
+
+-------------------------------------------------------------
+
+package Q4;
+
+import java.util.Scanner;
+
+public class Executavel {
+	public static int SomaDigitos(int n) {
+		if (n < 10) {
+			return n;
+		}
+		return (n % 10) + SomaDigitos(n / 10);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Digite um número inteiro: ");
+		int n = scanner.nextInt();
+
+		int resultado = SomaDigitos(n);
+		System.out.println("A soma dos algarismos de " + n + " é: " + resultado);
+
+	}
+}
+
+-------------------------------------------------------------
+
+package Q5;
+
+import java.util.Scanner;
+
+public class Executavel {
+	public static void SomaInteiros(int n, int nAtual) {
+		if (nAtual > n) {
+			return;
+		}
+		System.out.println(nAtual + " ");
+		SomaInteiros(n, nAtual + 1);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+
+	 Scanner sc = new Scanner(System.in);
+	 
+	 int n = sc.nextInt();
+	 
+	 SomaInteiros(n,1);
+	}
+}
+
+-------------------------------------------------------------
+
+package Q6;
+
+import java.util.Scanner;
+
+public class Executavel {
+	public static void ContagemRegressiva (int n) {
+		if (n < 0) {
+			return;
+		}
+		System.out.println(n + " ");
+		ContagemRegressiva (n - 1);
+	}
+
+// Exemplo teste
+
+	public static void main (String [] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		
+		ContagemRegressiva(n);
+				
+	}
+}
+
+-------------------------------------------------------------
+
+package Q7;
+
+import java.util.Scanner;
+
+public class Executavel {
+	public static boolean VerificarPolindromo(String str, int inicio, int fim) {
+		if (inicio >= fim) {
+			return true;
+		}
+		if (str.charAt(inicio) != str.charAt(fim)) {
+			return false;
+		}
+
+		return VerificarPolindromo(str, inicio + 1, fim - 1);
+	}
+
+	public static boolean verificaPalindromo(String str) {
+		str = str.replaceAll("\\s+", "").toLowerCase();
+		return VerificarPolindromo(str, 0, str.length() - 1);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Digite uma palavra ou frase: ");
+		String entrada = scanner.nextLine();
+
+		if (verificaPalindromo(entrada)) {
+			System.out.println("É um palíndromo!");
+		} else {
+			System.out.println("Não é um palíndromo.");
+		}
+	}
+}
+
+-------------------------------------------------------------
+
+package Q8;
+
+import java.util.Scanner;
+
+public class Executavel {
+	public static int somaNaturais(int n) {
+		if (n == 0) {
+			return 0;
+		}
+		return n + somaNaturais(n - 1);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		
+		int resultado = somaNaturais(n);
+        System.out.println("A soma dos primeiros " + n + " números naturais é: " + resultado);
+
+	}
+}
+
+-------------------------------------------------------------
+
+package Q9;
+
+import java.util.Scanner;
+
+public class Executavel {
+
+	public static int soma(int a, int b) {
+		if (b == 0)
+			return 0;
+		return a + soma(a, b - 1);
+	}
+
+	public static int CalcularPotencia(int base, int expoente) {
+
+		if (expoente == 0) {
+			return 1;
+		}
+
+		if (expoente == 1) {
+			return base;
+		}
+
+		return soma(base, CalcularPotencia(base, expoente - 1));
+
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Digite a base: ");
+		int base = scanner.nextInt();
+
+		System.out.print("Digite o expoente: ");
+		int expoente = scanner.nextInt();
+
+		int resultado = CalcularPotencia(base, expoente);
+		System.out.println(base + "^" + expoente + " = " + resultado);
+
+	}
+}
+
+-------------------------------------------------------------
+
+package Q10;
+
+import java.util.Scanner;
+
+public class Executavel {
+
+	public static int fibonacci(int n) {
+		if (n == 0) {
+			return 0;
+		}
+		if (n == 1) {
+			return 1;
+		}
+		return fibonacci(n - 1) + fibonacci(n - 2);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+
+		System.out.print("Digite um número inteiro N para calcular Fibonacci: ");
+		int n = scanner.nextInt();
+
+		int resultado = fibonacci(n);
+		System.out.println("O número de Fibonacci de índice " + n + " é: " + resultado);
+
+	}
+}
+
+-------------------------------------------------------------
+
+package Q11;
+
+import java.util.Scanner;
+
+public class Executavel {
+
+		public static String inverter(String str) {
+			if (str.isEmpty() || str.length() == 1) {
+				return str;
+			}
+			return str.charAt(str.length() - 1) + inverter(str.substring(0, str.length() - 1));
+		}
+
+// Exemplo teste
+
+		public static void main(String[] args) {
+			Scanner scanner = new Scanner(System.in);
+
+			System.out.print("Digite uma palavra para inverter: ");
+			String entrada = scanner.nextLine();
+
+			String resultado = inverter(entrada);
+			System.out.println("String invertida: " + resultado);
+		}
+	}
+
+-------------------------------------------------------------
+
+package Q12;
+
+public class Executavel {
+
+	public static int SomaArray(int array[], int tamanho) {
+		if (tamanho == 0) {
+			return 0;
+		}
+		return array[tamanho - 1] + SomaArray(array, tamanho - 1);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Qual o tamanho do array: ");
+		int n = sc.nextInt();
+
+		int[] array = new int[n];
+		System.out.println("Digite os elementos do array: ");
+		for (int i = 0; i < n; i++) {
+			array[i] = sc.nextInt();
+		}
+
+		int resultado = SomaArray(array, n);
+		System.out.println("A soma dos elementos do array é: " + resultado);
+	}
+}
+
+-------------------------------------------------------------
+
+package Q13;
+
+import java.util.Scanner;
+
+public class Executavel {
+
+	public static int QuantidadeCaracter(char caractere, String str) {
+		if (str.isEmpty()) {
+			return 0;
+		}
+
+		if (str.charAt(0) == caractere) {
+			return 1 + QuantidadeCaracter(caractere, str.substring(1));
+		}
+
+		return QuantidadeCaracter(caractere, str.substring(1));
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Digite uma palavra: ");
+		String entrada = sc.nextLine();
+
+		System.out.print("Digite o caractere a ser contado: ");
+		char caractere = sc.next().charAt(0);
+
+		int resultado = QuantidadeCaracter(caractere, entrada);
+		System.out.println("O caractere '" + caractere + "', aparece " + resultado + " vez(es) na string.");
+	}
+}
+
+-------------------------------------------------------------
+
+package Q14;
+
+import java.util.Scanner;
+
+public class Executavel {
+
+	public static int MaiorNumero(int[] array, int index) {
+		if (index == array.length - 1) {
+			return array[index];
+		}
+		int maiorRestante = MaiorNumero(array, index + 1);
+
+		if (array[index] > maiorRestante) {
+			return array[index];
+		} else {
+			return maiorRestante;
+		}
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Digite o tamanho do array: ");
+		int n = sc.nextInt();
+
+		int[] array = new int[n];
+		System.out.println("Digite os elementos do array:");
+		for (int i = 0; i < n; i++) {
+			array[i] = sc.nextInt();
+		}
+
+		int resultado = MaiorNumero(array, 0);
+		System.out.println("O maior elemento do array é: " + resultado);
+
+	}
+}
+
+-------------------------------------------------------------
+
+package Q15;
+
+import java.util.Scanner;
+
+public class Executavel {
+
+	public static int CalcularMDC(int a, int b) {
+
+		if (b == 0) {
+			return a;
+		}
+
+		return CalcularMDC(b, a % b);
+	}
+
+	public static int calcularMMC(int a, int b) {
+		return Math.abs(a * b) / CalcularMDC(a, b);
+	}
+
+// Exemplo teste
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Digite o primeiro número: ");
+		int a = sc.nextInt();
+
+		System.out.print("Digite o segundo número: ");
+		int b = sc.nextInt();
+
+		int resultado = calcularMMC(a, b);
+		System.out.println("O Mínimo Múltiplo Comum (MMC) de " + a + " e " + b + " é: " + resultado);
+	}
+}
+
+-------------------------------------------------------------
